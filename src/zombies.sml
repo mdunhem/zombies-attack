@@ -16,13 +16,7 @@ struct
       val basicModel = LatentInfection.run ()
     in
       (
-        print "Running latent infection: \n";
-        map (fn v => print (
-          "{ susceptible: " ^ (Real.toString((#susceptibles v))) ^
-          ", infected: " ^ (Real.toString((#infected v))) ^
-          ", zombie: " ^ (Real.toString((#zombies v))) ^
-          ", removed: " ^ (Real.toString((#removed v))) ^
-          " }\n")) basicModel;
+        LatentInfection.printOutput basicModel;
         true
       )
     end
