@@ -6,12 +6,7 @@ struct
       val basicModel = BasicModel.run ()
     in
       (
-        print "Running basic model: \n";
-        map (fn v => print (
-          "{ susceptible: " ^ (Real.toString((#susceptibles v))) ^
-          ", zombie: " ^ (Real.toString((#zombies v))) ^
-          ", removed: " ^ (Real.toString((#removed v))) ^
-          " }\n")) basicModel;
+        BasicModel.printOutput(basicModel);
         true
       )
     end
