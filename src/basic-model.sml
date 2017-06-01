@@ -1,8 +1,8 @@
 structure BasicModel =
 struct
 
-  type model = { susceptibles: real, zombies: real, removed: real }
   local
+    type model = { susceptibles: real, zombies: real, removed: real }
     val basePopulation = 500.0
     val alpha = 0.005
     val beta = 0.0095
@@ -13,9 +13,12 @@ struct
 
     fun calculate (basicModel, counter: int) =
       if counter = 0 then []
-      else if (#susceptibles basicModel) < 0.0 orelse (#susceptibles basicModel) > basePopulation then []
-      else if (#zombies basicModel) < 0.0 orelse (#zombies basicModel) > basePopulation then []
-      else if (#removed basicModel) < 0.0 orelse (#removed basicModel) > basePopulation then []
+      else if (#susceptibles basicModel) < 0.0 orelse (#susceptibles basicModel) > basePopulation
+        then basicModel :: calculate(basicModel, counter - 1)
+      else if (#zombies basicModel) < 0.0 orelse (#zombies basicModel) > basePopulation
+        then basicModel :: calculate(basicModel, counter - 1)
+      else if (#removed basicModel) < 0.0 orelse (#removed basicModel) > basePopulation
+        then basicModel :: calculate(basicModel, counter - 1)
       else
         let
           val susceptibles = (#susceptibles basicModel)
@@ -30,9 +33,8 @@ struct
             zombies = (zombies + (timeStep * (betaSZ + zetaR - alphaSZ))),
             removed = (removed + (timeStep * (deltaS + alphaSZ - zetaR)))
           }
-          val counter = counter - 1
         in
-          nextModel :: calculate(nextModel, counter)
+          nextModel :: calculate(nextModel, counter - 1)
         end
 
     fun printModel (basicModel: model list, index) =
