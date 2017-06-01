@@ -1,6 +1,7 @@
 Group is
   $/basis.cm
   src/basic-model.sml
+  src/latent-infection.sml
   src/zombies.sml
   src/main.sml
 
