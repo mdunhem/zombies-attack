@@ -42,4 +42,4 @@
 ./build-win.bat
 
 ## How to run
-./bin/zombies <option>
+./bin/zombies \<option\>
