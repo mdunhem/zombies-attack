@@ -49,6 +49,9 @@ struct
       | getMode ("treatment" :: _) = WITH_TREATMENT
       | getMode (_ :: _) = HELP
 
+    (**
+     * Parses the input and calls the appropiate function
+     *)
     fun runMode mode =
       case getMode mode of
            HELP => (print helpMessage; OS.Process.success)
@@ -68,9 +71,14 @@ struct
             OS.Process.success
            )
   in
-
+    (**
+     * Function called when running program through the SML REPL
+     *)
     fun run mode = runMode(mode :: [])
 
+    (**
+     * Function called when running program from the compiled executable
+     *)
     fun main (_, args) = runMode args
 
   end
