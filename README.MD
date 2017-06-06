@@ -21,10 +21,10 @@
 - Main.run "help"       
 
 #### Executable Usage
-- zombies basic
-- zombies latent
-- zombies treatment
-- zombies help
+- ./bin/zombies basic
+- ./bin/zombies latent
+- ./bin/zombies treatment
+- ./bin/zombies help
 
 #### Options
 - basic       -     Run basic model
@@ -40,6 +40,3 @@
 
 #### How to compile on Windows machines
 ./build-win.bat
-
-## How to run
-./bin/zombies \<option\>
