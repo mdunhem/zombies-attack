@@ -44,9 +44,6 @@ struct
     "  --treatment   -     Run with treatment model      \n" ^
     "  --help        -     Print this message            \n"
 
-
-  fun toExitStatus b = if b then OS.Process.success else OS.Process.failure
-
   fun main (_, args) =
     let
       val (opts, _) = List.partition (String.isPrefix "--") args
@@ -54,8 +51,20 @@ struct
     in
       case mode of
            HELP => (print helpMessage; OS.Process.success)
-         | BASIC_MODEL => (print banner; toExitStatus (Zombies.basic()))
-         | WITH_LATENT_INFECTION => (print banner; toExitStatus (Zombies.latentInfection()))
-         | WITH_TREATMENT => (print banner; toExitStatus (Zombies.withTreatment()))
+         | BASIC_MODEL => (
+            print banner;
+            BasicModel.printOutput(BasicModel.run());
+            OS.Process.success
+           )
+         | WITH_LATENT_INFECTION => (
+            print banner;
+            LatentInfection.printOutput(LatentInfection.run());
+            OS.Process.success
+           )
+         | WITH_TREATMENT => (
+            print banner;
+            WithTreatmentModel.printOutput(WithTreatmentModel.run());
+            OS.Process.success
+           )
     end
 end
