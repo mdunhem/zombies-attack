@@ -6,7 +6,7 @@
  * the MATLAB code do not produce the same result that is listed in the paper
  * but with the updated parameters it does.
  *)
-structure LatentInfection =
+structure WithLatentInfection =
 struct
 
   local

@@ -62,7 +62,7 @@ struct
            )
          | WITH_LATENT_INFECTION => (
             print banner;
-            LatentInfection.printOutput(LatentInfection.run());
+            WithLatentInfection.printOutput(WithLatentInfection.run());
             OS.Process.success
            )
          | WITH_TREATMENT => (
