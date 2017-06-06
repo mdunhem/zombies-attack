@@ -12,23 +12,34 @@
 ----------------------------------------------------------------
 ```
 
-#### Usage
-- zombies --basic
-- zombies --latent
-- zombies --quarantine
-- zombies --help
+## Usage
+
+#### Loading from SML Interpreter Usage
+- Main.run "basic"
+- Main.run "latent"
+- Main.run "treatment"
+- Main.run "help"       
+
+#### Executable Usage
+- zombies basic
+- zombies latent
+- zombies treatment
+- zombies help
 
 #### Options
-- --basic       -     Run basic model
-- --latent      -     Run basic model
-- --quarantine  -     Run basic model
-- --help        -     Print this message
+- basic       -     Run basic model
+- latent      -     Run latent infection model
+- treatment   -     Run with treatment model
+- help        -     Print the help message
 
 
-This is currently set up to run on Windows using bash
+## How to build
 
-## How to compile ##
-./build.sh
+#### How to compile on Unix-like machines
+./build-unix.sh
 
-## How to run ##
-./bin/zombies
+#### How to compile on Windows machines
+./build-win.bat
+
+## How to run
+./bin/zombies <option>
