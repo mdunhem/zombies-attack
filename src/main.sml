@@ -31,10 +31,10 @@ struct
       "  Main.run \"help\"                                 \n" ^
       "                                                    \n" ^
       "Executable Usage                                    \n" ^
-      "  bin/zombies basic                                 \n" ^
-      "  bin/zombies latent                                \n" ^
-      "  bin/zombies treatment                             \n" ^
-      "  bin/zombies help                                  \n" ^
+      "  ./bin/zombies basic                               \n" ^
+      "  ./bin/zombies latent                              \n" ^
+      "  ./bin/zombies treatment                           \n" ^
+      "  ./bin/zombies help                                \n" ^
       "                                                    \n" ^
       "Options                                             \n" ^
       "  basic       -     Run basic model                 \n" ^
