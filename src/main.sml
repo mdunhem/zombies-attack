@@ -1,20 +1,18 @@
 structure Main =
 struct
   datatype mode =
-      PRINT_DEVELOPMENT
-    | HELP
+      HELP
     | BASIC_MODEL
     | WITH_LATENT_INFECTION
-    | WITH_QUARANTINE
-    (*| WITH_TREATMENT
-    | WITH_IMPULSIVE_ERADICATION*)
+    | WITH_TREATMENT
 
   local
-    fun go [] = PRINT_DEVELOPMENT
+    fun go [] = HELP
       | go ("--help" :: _) = HELP
       | go ("--basic" :: _) = BASIC_MODEL
       | go ("--latent" :: _) = WITH_LATENT_INFECTION
-      | go ("--quarantine" :: _) = WITH_QUARANTINE
+      | go ("--treatment" :: _) = WITH_TREATMENT
+      | go (_ :: _) = HELP
   in
     fun getMode args = go args
   end
@@ -35,16 +33,16 @@ struct
 
   val helpMessage =
     banner ^
-    "Usage                                    \n" ^
-    "  zombies --basic                        \n" ^
-    "  zombies --latent                       \n" ^
-    "  zombies --quarantine                   \n" ^
-    "  zombies --help                         \n" ^
-    "Options                                  \n" ^
-    "  --basic       -     Run basic model    \n" ^
-    "  --latent      -     Run basic model    \n" ^
-    "  --quarantine  -     Run basic model    \n" ^
-    "  --help        -     Print this message \n"
+    "Usage                                               \n" ^
+    "  zombies --basic                                   \n" ^
+    "  zombies --latent                                  \n" ^
+    "  zombies --quarantine                              \n" ^
+    "  zombies --help                                    \n" ^
+    "Options                                             \n" ^
+    "  --basic       -     Run basic model               \n" ^
+    "  --latent      -     Run latent infection model    \n" ^
+    "  --treatment   -     Run with treatment model      \n" ^
+    "  --help        -     Print this message            \n"
 
 
   fun toExitStatus b = if b then OS.Process.success else OS.Process.failure
@@ -59,10 +57,9 @@ struct
       val mode = getMode opts
     in
       case mode of
-           PRINT_DEVELOPMENT => (print helpMessage; OS.Process.success)
-         | HELP => (print helpMessage; map printInputs otherInputs; OS.Process.success)
+           HELP => (print helpMessage; map printInputs otherInputs; OS.Process.success)
          | BASIC_MODEL => (print banner; toExitStatus (Zombies.basic()))
          | WITH_LATENT_INFECTION => (print banner; toExitStatus (Zombies.latentInfection()))
-         | WITH_QUARANTINE => (print banner; toExitStatus (Zombies.quarantine()))
+         | WITH_TREATMENT => (print banner; toExitStatus (Zombies.withTreatment()))
     end
 end

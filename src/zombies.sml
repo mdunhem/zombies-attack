@@ -21,11 +21,11 @@ struct
       )
     end
 
-  fun quarantine () =
+  fun withTreatment () =
     let
-      val sampleOutput = "Running basic model with quarantine"
+      val withTreatmentModel = WithTreatmentModel.run()
     in
-      (print sampleOutput; true)
+      ( WithTreatmentModel.printOutput withTreatmentModel; true )
     end
 
 end

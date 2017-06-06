@@ -2,6 +2,7 @@ Group is
   $/basis.cm
   src/basic-model.sml
   src/latent-infection.sml
+  src/with-treatment-model.sml
   src/zombies.sml
   src/main.sml
 
