@@ -47,17 +47,13 @@ struct
 
   fun toExitStatus b = if b then OS.Process.success else OS.Process.failure
 
-  fun printInputs input =
-    (print input; print "\n")
-
   fun main (_, args) =
     let
-      val (opts, otherInputs) = List.partition (String.isPrefix "--") args
-      val parsedInputs = List.partition (String.isPrefix "-") otherInputs
+      val (opts, _) = List.partition (String.isPrefix "--") args
       val mode = getMode opts
     in
       case mode of
-           HELP => (print helpMessage; map printInputs otherInputs; OS.Process.success)
+           HELP => (print helpMessage; OS.Process.success)
          | BASIC_MODEL => (print banner; toExitStatus (Zombies.basic()))
          | WITH_LATENT_INFECTION => (print banner; toExitStatus (Zombies.latentInfection()))
          | WITH_TREATMENT => (print banner; toExitStatus (Zombies.withTreatment()))
