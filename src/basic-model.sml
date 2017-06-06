@@ -6,8 +6,8 @@ struct
     val basePopulation = 500.0
     val alpha = 0.005
     val beta = 0.0095
-    val zeta = 0.07
-    val delta = 0.09
+    val zeta = 5.0
+    val delta = 0.0001
     val stoppingTime = 5.0
     val timeStep = 0.01
 
@@ -64,7 +64,7 @@ struct
     fun printOutput (basicModel: model list) =
       (
         print (
-          "Running basic model with values: \n" ^
+          "Running basic model using values: \n" ^
           "{ alpha: " ^ (Real.toString alpha) ^
           ", beta: " ^ (Real.toString beta) ^
           ", zeta: " ^ (Real.toString zeta) ^

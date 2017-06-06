@@ -5,10 +5,10 @@ struct
     type model = { susceptibles: real, infected: real, zombies: real, removed: real }
     val basePopulation = 500.0
     val alpha = 0.005
-    val beta = 0.0028
+    val beta = 0.0095
     val rho = 5.0
     val zeta = 5.0
-    val delta = 0.09
+    val delta = 0.0001
     val stoppingTime = 10.0
     val timeStep = 0.01
 
@@ -72,7 +72,7 @@ struct
     fun printOutput (latentInfectionModel: model list) =
       (
         print (
-          "Running latent infection model with values: \n" ^
+          "Running latent infection model using values: \n" ^
           "{ alpha: " ^ (Real.toString alpha) ^
           ", beta: " ^ (Real.toString beta) ^
           ", rho: " ^ (Real.toString rho) ^
@@ -86,13 +86,3 @@ struct
       )
   end
 end
-
-(*
-alpha = 0.005;
-  beta = 0.0095;
-  rho = 2.0;
-  zeta = 0.07;
-  delta = 0.09;
-  t = 10.0;
-  dt = 0.01;
-*)
