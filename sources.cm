@@ -2,5 +2,5 @@ Group is
   $/basis.cm
   src/basic-model.sml
   src/with-latent-infection.sml
-  src/with-treatment-model.sml
+  src/with-treatment.sml
   src/main.sml

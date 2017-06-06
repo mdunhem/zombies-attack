@@ -67,7 +67,7 @@ struct
            )
          | WITH_TREATMENT => (
             print banner;
-            WithTreatmentModel.printOutput(WithTreatmentModel.run());
+            WithTreatment.printOutput(WithTreatment.run());
             OS.Process.success
            )
   in
