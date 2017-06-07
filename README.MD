@@ -14,16 +14,23 @@
 
 ## Usage
 
-#### Loading from SML Interpreter Usage
-Make sure to run `CM.make "sources.cm";` first, which will load all of the needed files.
+The program can be run from either inside of the SML REPL or compiling it into
+an executable. If running from the SML REPL, make sure to run `CM.make "sources.cm";`
+first, which will load all of the needed files. Otherwise run the build script
+based on the operating system you are using. Instructions on how to run all
+of these are listed below.
 
-Then you can run these commands:
+#### Loading from SML REPL Usage
+
+First run `CM.make "sources.cm";`, then you can run any of these commands:
 - `Main.run "basic";`
 - `Main.run "latent";`
 - `Main.run "treatment";`
 - `Main.run "help";`
 
 #### Executable Usage
+
+First run the appropriate build script, then you can run any of these commands:
 - `./bin/zombies basic`
 - `./bin/zombies latent`
 - `./bin/zombies treatment`
