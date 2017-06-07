@@ -15,16 +15,19 @@
 ## Usage
 
 #### Loading from SML Interpreter Usage
-- Main.run "basic"
-- Main.run "latent"
-- Main.run "treatment"
-- Main.run "help"       
+Make sure to run `CM.make "sources.cm";` first, which will load all of the needed files.
+
+Then you can run these commands:
+- `Main.run "basic";`
+- `Main.run "latent";`
+- `Main.run "treatment";`
+- `Main.run "help";`
 
 #### Executable Usage
-- ./bin/zombies basic
-- ./bin/zombies latent
-- ./bin/zombies treatment
-- ./bin/zombies help
+- `./bin/zombies basic`
+- `./bin/zombies latent`
+- `./bin/zombies treatment`
+- `./bin/zombies help`
 
 #### Options
 - basic       -     Run basic model
@@ -36,7 +39,7 @@
 ## How to build
 
 #### How to compile on Unix-like machines
-./build-unix.sh
+`./build-unix.sh`
 
 #### How to compile on Windows machines
-./build-win.bat
+`./build-win.bat`
